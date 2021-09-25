@@ -4,7 +4,7 @@ export default class RestaurantController {
   /**
    * Get restaurants endpoint
    */
-  static async apiGetRestaurants(req, res, next) {
+  static async getRestaurants(req, res, next) {
     const restaurantsPerPage = req.query.restaurantsPerPage
       ? parseInt(req.query.restaurantsPerPage, 10)
       : 20;
