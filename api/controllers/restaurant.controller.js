@@ -15,21 +15,17 @@ export default class RestaurantController {
 
     if (req.query.cuisine) {
       filters.cuisine = req.query.cuisine;
-    }
-
-    if (req.query.zipcode) {
+    } else if (req.query.zipcode) {
       filters.zipcode = req.query.zipcode;
-    }
-
-    if (req.query.name) {
+    } else if (req.query.name) {
       filters.name = req.query.name;
     }
 
-    const { restaurantsList, totalItems } = await RestaurantDTO.getRestaurants(
+    const { restaurantsList, totalItems } = await RestaurantDTO.getRestaurants({
       filters,
       page,
-      restaurantsPerPage
-    );
+      restaurantsPerPage,
+    });
 
     let response = {
       restaurants: restaurantsList,

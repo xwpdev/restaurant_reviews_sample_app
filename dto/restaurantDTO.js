@@ -21,7 +21,7 @@ export default class RestaurantDTO {
    * Get all restaurants data
    */
   static async getRestaurants({
-    filters = null,
+    filters,
     page = 0,
     restaurantsPerPage = 20,
   } = {}) {
