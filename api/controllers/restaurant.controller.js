@@ -37,4 +37,8 @@ export default class RestaurantController {
 
     res.json(response);
   }
+
+  static async getRestaurantById(req, res, next) {}
+
+  static async getRestaurantCusines(req, res, next) {}
 }
