@@ -27,6 +27,9 @@ export default class ReviewsController {
     }
   }
 
+  /**
+   * PUT review endpoint
+   */
   static async putReview(req, res, next) {
     try {
       const reviewId = req.body.review_id;
@@ -48,8 +51,22 @@ export default class ReviewsController {
       }
 
       if (reviewResponse.modifiedCount === 0) {
-          
       }
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  }
+
+  /**
+   * DELETE review endpoint
+   */
+  static async deleteReview(req, res, next) {
+    try {
+      const reviewId = req.body.review_id;
+      const userId = req.body.user_id;
+
+      const reviewResponse = ReviewsDTO.deleteReview(reviewId, userId);
+      res.status(200).json({ reviewResponse });
     } catch (error) {
       res.status(500).json({ error });
     }

@@ -13,7 +13,7 @@ dotenv.config();
 /**
  * Server port
  */
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 
 /**
  * Configure MongoDB client
